@@ -32,6 +32,8 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem "active_model_serializers"
+
 group :development do
   gem 'guard', '>= 2.2.2',       :require => false
   gem 'guard-livereload',        :require => false
