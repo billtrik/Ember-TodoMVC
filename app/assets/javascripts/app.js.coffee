@@ -51,18 +51,21 @@ App.TodoController = Ember.ObjectController.extend
     edit: ->
       @transitionToRoute('user.edit')
 
+  isCompleted: ((key, value)->
+    model = this.get('model')
+    if value is undefined
+      return model.get('completed')
+    else
+      model.set('completed', value)
+      model.save()
+      return value
+  ).property('model.completed')
 
   isEditing: false
   edit:  -> @set('isEditing', true)
   doneEditing: ->
     @set('isEditing', false)
     @get('store').commit()
-
-  # isChecked: true,
-  # _isCheckedChanged: (->
-  #     isChecked = @get('isChecked')
-  #     console.log 'isChecked changed to %@'.fmt(isChecked)
-  # ).observes('isChecked')
 
 
 ## HELPERS
