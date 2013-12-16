@@ -13,5 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap.min
-//= require turbolinks
-//= require_tree .
+
+//= require moment.min-2.4.0
+//= require handlebars-1.1.2
+//= require ember-1.2.1
+//= require ember-data-1.0.0
+
+//= require app
+// require_tree .
