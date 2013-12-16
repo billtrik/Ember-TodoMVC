@@ -17,8 +17,9 @@ body {
 }
 
 .delete_th, .completed_th, .id_th{
-  width:20px;
+  width:36px;
 }
+
 thead{
   visibility:hidden;
 }
