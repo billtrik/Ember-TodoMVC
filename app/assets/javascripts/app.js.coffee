@@ -13,7 +13,10 @@ App.IndexRoute = Ember.Route.extend
 
 ##TODOS
 App.TodosController = Ember.ArrayController.extend
-  todosCount: (-> @get('model.length')).property('@each')
+  todosTotal      : (-> @get('model.length')).property('@each')
+  todosIncomplete : (-> @filterProperty('completed', false).get('length') ).property('@each.completed')
+  todosCompleted  : (-> @filterProperty('completed', true ).get('length') ).property('@each.completed')
+
   actions:
     createTodo: ->
       title = @get('title')
