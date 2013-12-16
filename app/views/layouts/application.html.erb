@@ -72,8 +72,6 @@
 
     <div>TODOs: {{todosCount}}</div>
 
-    {{#link-to 'todos' class="btn btn-success"}} Create {{/link-to}}
-
     <table class="table table-striped table-bordered table-hover">
       <thead>
         <tr>
@@ -84,6 +82,11 @@
         </tr>
       </thead>
       <tbody>
+        <tr>
+          <td></td>
+          <td colspan="2">{{input type="text" id="new-todo-item" placeholder="New TODO note?"  value=title action="createTodo"}}</td>
+          <td><button {{action "createTodo"}} class="btn btn-success btn-xs">Create</button></td>
+        </tr>
 
         {{#each itemController="todo"}}
             <tr>

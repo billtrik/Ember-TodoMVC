@@ -19,6 +19,19 @@ App.IndexRoute = Ember.Route.extend
 ##TODOS
 App.TodosController = Ember.ArrayController.extend
   todosCount: (-> @get('model.length')).property('@each')
+  actions:
+    createTodo: ->
+      title = @get('title')
+      return if !title or !title.trim()
+
+      todo = @store.createRecord 'todo',
+        title     : title
+        completed : false
+
+      @set('title', '')
+      todo.save()
+      return
+
 App.TodosRoute = Ember.Route.extend
   model: -> @store.find('todo')
 

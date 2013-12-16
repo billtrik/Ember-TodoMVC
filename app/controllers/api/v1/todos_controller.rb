@@ -10,6 +10,16 @@ class API::V1::TodosController < ApplicationController
     respond_with Todo.find(params[:id])
   end
 
+  def create
+    @todo = Todo.new post_params
+
+    if @todo.save
+      render :json => @todo
+    else
+      render :json => {:error_message => "Error on create."}
+    end
+  end
+
   def update
     @todo = Todo.find(params[:id])
 

@@ -28,3 +28,8 @@ label{
   text-align:right;
   margin-right: 10px;
 }
+
+#new-todo-item{
+  border: 0 none;
+  width:100%;
+}
