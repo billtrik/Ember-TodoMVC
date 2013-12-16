@@ -62,12 +62,19 @@ App.TodoController = Ember.ObjectController.extend
     toggleCompleted: ->
       console.log arguments
     edit: ->
-      @transitionToRoute('user.edit')
+      @set('isEditing', true)
+    acceptChanges: ->
+      @set('isEditing', false)
+      if Ember.isEmpty( @get('model.title') )
+        @send('delete')
+      else
+        @get('model').save()
     delete: ->
       todo = this.get('model')
       todo.deleteRecord()
       todo.save()
 
+  isEditing: false
   isCompleted: ((key, value)->
     model = this.get('model')
     if value is undefined
@@ -78,6 +85,8 @@ App.TodoController = Ember.ObjectController.extend
       return value
   ).property('model.completed')
 
+App.EditTodoView = Ember.TextField.extend
+  didInsertElement: -> this.$().focus()
   isEditing: false
   edit:  -> @set('isEditing', true)
   doneEditing: ->
@@ -86,5 +95,6 @@ App.TodoController = Ember.ObjectController.extend
 
 
 ## HELPERS
+Ember.Handlebars.helper 'edit-todo', App.EditTodoView
 Ember.Handlebars.helper 'format-markdown', (input)-> new Handlebars.SafeString(input)
 Ember.Handlebars.helper 'format-date', (date)-> moment(date).fromNow()

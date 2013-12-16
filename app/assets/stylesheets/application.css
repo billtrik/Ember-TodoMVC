@@ -29,7 +29,7 @@ label{
   margin-right: 10px;
 }
 
-#new-todo-item{
+input{
   border: 0 none;
   width:100%;
 }

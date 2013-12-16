@@ -89,12 +89,18 @@
         </tr>
 
         {{#each itemController="todo"}}
-            <tr>
-              <td>{{id}}</td>
-              <td>{{#link-to "todo.edit" this}} {{title}} {{/link-to}}</td>
-              <td>{{input type="checkbox" checked=isCompleted class="toggle"}}</td>
-              <td><button {{action "delete"}} class="btn btn-danger btn-xs">Delete</button></td>
-            </tr>
+          <tr>
+            <td>{{id}}</td>
+            <td>
+              {{#if isEditing}}
+                {{edit-todo value=title focus-out="acceptChanges" insert-newline="acceptChanges"}}
+              {{else}}
+                <p {{action "edit" on="doubleClick"}}>{{title}}</p>
+              {{/if}}
+            </td>
+            <td>{{input type="checkbox" checked=isCompleted class="toggle"}}</td>
+            <td><button {{action "delete"}} class="btn btn-danger btn-xs">Delete</button></td>
+          </tr>
         {{/each}}
 
       </tbody>
