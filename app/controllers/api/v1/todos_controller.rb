@@ -24,9 +24,9 @@ class API::V1::TodosController < ApplicationController
     @todo = Todo.find(params[:id])
 
     if @todo.update post_params
-      respond_with @article
+      respond_with @todo
     else
-      render :json => {:error_message => "We're sorry, but something went wrong. We've been notified about this issue and we'll take a look at it shortly."}
+      render :json => {:error_message => "Error on update."}
     end
   end
 

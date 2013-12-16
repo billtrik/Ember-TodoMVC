@@ -13,7 +13,7 @@
     <div class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <a href="../" class="navbar-brand">Cultural.me TODO</a>
+          <a href="../" class="navbar-brand">Ember.js+Rails TodoMVC</a>
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -22,7 +22,7 @@
         </div>
         <div class="navbar-collapse collapse" id="navbar-main">
           <ul class="nav navbar-nav">
-            <li>{{#link-to 'todos'}}TODO List{{/link-to}}</li>
+            <li>{{#link-to 'todos'}}TODOs{{/link-to}}</li>
             <li>{{#link-to 'about'}}About{{/link-to}}</li>
           </ul>
         </div>
@@ -41,34 +41,13 @@
     <div class="page-header">
       <h1 id="type">About</h1>
     </div>
-    <p> This is the about page </p>
-  </script>
-
-  <script type="text/x-handlebars" id="todo">
-  {{outlet}}
-  </script>
-
-
-  <script type="text/x-handlebars" id="todo_edit">
-    <div class="user-edit">
-      <p>
-        <label>Title:</label>
-        {{input value=title}}
-      </p>
-      <p>
-        <label>Completed:</label>
-        {{view Ember.Checkbox checkedBinding="todo.isChecked"}}
-      </p>
-      <button {{action "save"}}> Save </button>
-    </div>
+    <p> This is a sample TODO app using the <strong>Ember.js</strong> MVC framework for the GUI and <strong>Rails</strong> for the serverside REST API. </p>
   </script>
 
   <script type="text/x-handlebars" id="todos">
     <div class="page-header">
       <h1 id="type">TODOs</h1>
     </div>
-
-    <div class="well">{{outlet}}</div>
 
     <div>TODOs: {{todosCount}}</div>
 
