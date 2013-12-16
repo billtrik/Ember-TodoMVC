@@ -50,6 +50,10 @@ App.TodoController = Ember.ObjectController.extend
       console.log arguments
     edit: ->
       @transitionToRoute('user.edit')
+    delete: ->
+      todo = this.get('model')
+      todo.deleteRecord()
+      todo.save()
 
   isCompleted: ((key, value)->
     model = this.get('model')

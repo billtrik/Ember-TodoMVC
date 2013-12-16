@@ -20,6 +20,13 @@ class API::V1::TodosController < ApplicationController
     end
   end
 
+  def destroy
+    @todo = Todo.find(params[:id])
+    @todo.destroy
+    respond_with @todo
+  end
+
+
 
   private
     def post_params
