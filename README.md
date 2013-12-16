@@ -8,6 +8,7 @@ It uses Ember.js for the client SPA code, and Rails for the REST API.
 Install/Setup steps:
 
 * bundle
+* rake db:migrate
 * rake db:seed
 * rails s
 
